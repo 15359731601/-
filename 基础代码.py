@@ -2,7 +2,7 @@
 import streamlit as st
 from PIL import Image
 
-page = st.sidebar.radio('我的首页', ['我的兴趣推荐', '我的图片处理工具', '我的智慧词典', '我的留言区'])
+page = st.sidebar.radio('我的首页', ['我的兴趣推荐', '我的图片处理工具', '我的智慧词典','我的调查区','我的留言区','我的网页区'])
 
 def page_1():
     '''我的推荐'''
@@ -11,13 +11,11 @@ def page_1():
     st.audio(mymp3,format='audio/mp3',start_time=0)
     st.image('slogan.png')
     st.write('我的电影推荐')
-    st.write('-----------------------------')
+    st.write('-《热辣滚烫》----------《摔跤吧，爸爸》------------《抓娃娃》------')
     st.write('我的游戏推荐')
-    st.write('-----------------------------')
+    st.write('--《我的世界》---------《暗区突围》-----------《蛋仔派对》-------')
     st.write('我的书籍推荐')
-    st.write('-----------------------------')
-    st.write('我的习题集推荐')
-    st.write('-----------------------------')
+    st.write('---《西游记》----《三国演义》------《红楼梦》-------《水浒传》---------')
     st.write('图片.jpg')
     #st.write("<span style='font-size:20px'>这是设置为20px字体大小的文本</span>", unsafe_allow_html=True)
     def pape_2():
@@ -88,15 +86,14 @@ def page_3():
             st.code('''
                     # 恭喜你触发彩蛋，这是一行python代码
                     print('hello world')''')
+    
+            
+def page_4():
+    '''我的调查区''' 
     # 滑动条st.slider()
     cb = st.checkbox('勾选选项')
     if cb:
         st.write('选项被勾选', cb)
-    # 如何创建勾选框？
-    # 勾选框更适合单选还是多选？
-    # 勾选框的返回值是选框中的字符串吗？不是的话，返回值是什么？
-    
-    # 应用：宣传_互联网知识
     st.write('----')
     st.write('你知道吗：为什么要设置公网和私网？为什么不让每一个设备都直接连接到公网上？')
     cb1 = st.checkbox('易于管理')
@@ -109,8 +106,9 @@ def page_3():
             st.write('其实都不对，答案是“历史问题，不得已而为之”')
         else:
             st.write('好厉害！确实都不对，真实答案是“历史问题，不得已而为之”，下面就让我来讲讲吧：早期网络规模有限：在网络发展的早期，可用的 IP 地址资源相对充足，随着网络设备和用户数量的急剧增加，IP 地址变得稀缺')
-                     
-def page_4():
+
+        
+def page_5():
     '''我的留言区'''
     st.write('我的留言区')
     # 从文件中加载内容，并处理成列表
@@ -136,6 +134,8 @@ def page_4():
             message = message[:-1]
             f.write(message)
 
+def page_6():
+    '''我的网页区'''
     # 跳转按钮link_button()
     st.link_button('百度首页', 'https://www.baidu.com/')
     
@@ -144,11 +144,13 @@ def page_4():
     
     st.write('其他网站')
     st.write('除了本主站之外，我还将我的有趣内容分享在了其他网站中')
-    go = st.selectbox('你的支持是我最大的动力，去支持一下up吧！', ['我的贴吧', '我的bilibili'])
+    go = st.selectbox('你的支持是我最大的动力，去支持一下up吧！', ['我的贴吧', '我的bilibili','我的快手'])
     if go == '我的贴吧':
         st.link_button('帮我盖楼', 'https://www.baidu.com/')
     elif go == '我的bilibili':
         st.link_button('帮我一键三连', 'https://www.bilibili.com/')
+    elif go == '我的快手':
+        st.link_button('帮我记录生活', 'https://kuaishou.cn/new-reco')
 
 
 def img_change(img, rc, gc, bc):
@@ -170,5 +172,9 @@ elif page == '我的图片处理工具':
     page_2()
 elif page == '我的智慧词典':
     page_3()
-elif page == '我的留言区':
+elif page == '我的调查区':
     page_4()
+elif page == '我的留言区':
+    page_5()
+elif page == '我的网页区':
+    page_6()
